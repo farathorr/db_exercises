@@ -16,6 +16,12 @@ public class Main {
         carDao.persist(car1);
         carDao.persist(car2);
 
-       // System.out.println(driver1.getCars());
+        driver1.setCar(car1);
+        driver2.setCar(car2);
+        driverDao.update(driver1);
+        driverDao.update(driver2);
+
+       System.out.println(driver1.getCar().getModel());
+       System.out.println(car1.getDriver().getName());
     }
 }
