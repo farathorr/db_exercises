@@ -15,8 +15,13 @@ public class Driver {
 
 
 
-    @OneToOne(mappedBy = "driver")
-    private Car car;
+    @ManyToMany
+    @JoinTable(
+            name = "driver_car",
+            joinColumns = @JoinColumn(name = "driver_id"),
+            inverseJoinColumns = @JoinColumn(name = "car_id")
+    )
+    private List<Car> cars = new ArrayList<>();
 
     public Driver() {
     }
@@ -50,11 +55,11 @@ public class Driver {
         this.experience = experience;
     }
 
-    public Car getCar() {
-        return car;
+    public List<Car> getCars() {
+        return cars;
     }
 
-    public void setCar(Car car) {
-        this.car = car;
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
     }
 }
