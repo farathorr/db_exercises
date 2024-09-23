@@ -9,7 +9,6 @@ public class CarDao {
         if(em == null){
             return;
         }
-        //car.getDriver().getCars().add(car);
         em.getTransaction().begin();
         em.persist(car);
         em.getTransaction().commit();

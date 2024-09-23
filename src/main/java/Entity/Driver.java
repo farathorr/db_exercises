@@ -26,6 +26,8 @@ public class Driver {
         this.experience = experience;
     }
 
+    // Getters and setters
+
     public Long getId() {
         return id;
     }

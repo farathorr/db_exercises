@@ -1,4 +1,4 @@
-package datasource;
+package Datasource;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
