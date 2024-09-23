@@ -1,35 +1,21 @@
-import Dao.ExamDAO;
-import Dao.StudentDAO;
-import Entity.Exam;
-import Entity.Student;
-
-import java.util.Date;
-import java.util.List;
+import Dao.CarDao;
+import Dao.DriverDao;
+import Entity.Car;
+import Entity.Driver;
 
 public class Main {
-
     public static void main(String[] args) {
-        StudentDAO studentDAO = new StudentDAO();
-        ExamDAO examDAO = new ExamDAO();
+        Driver driver1 = new Driver("Aapo", 99);
+        Driver driver2 = new Driver("Jorma", 1);
+        Car car1 = new Car("Toyota", driver1);
+        Car car2 = new Car("BMW", driver2);
+        DriverDao driverDao = new DriverDao();
+        CarDao carDao = new CarDao();
+        driverDao.persist(driver1);
+        driverDao.persist(driver2);
+        carDao.persist(car1);
+        carDao.persist(car2);
 
-        // Add sample students
-        Student john = new Student("John Doe");
-        Student jane = new Student("Jane Smith");
-
-        studentDAO.saveStudent(john);
-        studentDAO.saveStudent(jane);
-
-        // Add exams for students
-        examDAO.saveExam(new Exam(john, 4, new Date()));
-        examDAO.saveExam(new Exam(john, 5, new Date()));
-        examDAO.saveExam(new Exam(jane, 3, new Date()));
-
-        // Retrieve and display all students and their exam grades
-        List<Student> students = studentDAO.getAllStudents();
-        for (Student student : students) {
-            System.out.println("Student: " + student.getName());
-            student.getExams().forEach(exam -> System.out.println(" - Exam Grade: " + exam.getGrade() + " Date: " + exam.getDate()));
-        }
+        System.out.println(driver1.getCars());
     }
 }
-
