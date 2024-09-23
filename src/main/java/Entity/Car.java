@@ -8,7 +8,7 @@ public class Car {
 
     private String model;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "driver_id")
     private Driver driver;
 

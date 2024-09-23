@@ -14,8 +14,9 @@ public class Driver {
     private int experience;
 
 
-    @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL)
-    private List<Car> cars = new ArrayList<>();
+
+    @OneToOne(mappedBy = "driver")
+    private Car car;
 
     public Driver() {
     }
@@ -49,11 +50,11 @@ public class Driver {
         this.experience = experience;
     }
 
-    public List<Car> getCars() {
-        return cars;
+    public Car getCar() {
+        return car;
     }
 
-    public void setCars(List<Car> cars) {
-        this.cars = cars;
+    public void setCar(Car car) {
+        this.car = car;
     }
 }
